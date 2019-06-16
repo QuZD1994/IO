@@ -1,0 +1,15 @@
+字符流:只能处理 纯文本，全部为可见字符  .txt  .html
+节点流 Reader FileReader
+          Writer FileWriter
+一、纯文本读取
+1、建立联系
+2、选择流 Reader FileReader
+3、读取 char[] flush =new char[1024];
+4、关闭
+二、纯文本写出
+1、建立联系
+2、选择流   Writer FileWriter
+3、读取 write(字符数组,0,长度)+flush
+	write(字符串)
+	append(字符|字符串)
+4、关闭
