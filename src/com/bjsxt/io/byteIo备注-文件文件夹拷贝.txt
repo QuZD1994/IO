@@ -1,3 +1,19 @@
+字节流:可以处理一切文件，包括二进制 音频、视频 、doc等
+节点流:   InputStream FileInputStream
+ 	 OutputStream FileOutputStream
+
+一、读取文件 Demo01
+1、建立联系   File对象 源头
+2、选择流     文件输入流  InputStream FileInputStream
+3、操作  : byte[] car =new byte[1024];  +read+读取大小
+              输出
+4、释放资源 :关闭
+二、写出文件 Demo02
+1、建立联系   File对象  目的地
+2、选择流     文件输出流  OutputStream FileOutputStream
+3、操作  :  write() +flush
+4、释放资源 :关闭
+三、文件拷贝 程序为桥梁 输入和输出流 读取+写出+循环 CopyFileDemo
 1、建立联系   File对象   源头 目的地
 2、选择流     
 	 文件输入流  InputStream FileInputStream
@@ -10,3 +26,9 @@
 	  }
              输出流.flush
 4、释放资源 :关闭 两个流
+四、文件夹拷贝
+1、递归查找子孙级文件|文件夹
+2、文件 复制(IO流复制)
+     文件夹  创建
+3、   A
+
