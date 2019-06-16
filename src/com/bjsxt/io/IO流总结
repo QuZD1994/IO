@@ -1,0 +1,59 @@
+一、步骤： 创建源 选择流 操作(读取|写出) 释放
+二、流
+ 
+节点流:离数据源|程序最近的流		   
+1、	字节流:可以处理一切(纯文本、音频、视频等)
+1)、输入流 InputStream FileInputStream
+ByteArrayInputStream
+操作:read(字节数组)
+ a)、中间容器  byte[] flush=new byte[长度]
+ b)、接收长度  int len =0;
+c)、循环读取 while(-1!=(len=流.read(flush))){}
+ d)、操作:输出、拷贝
+2)、输出流 OutputStream FileOutputStream
+ByteArrayOutputStream
+操作:write(字节数组,0,长度)  输出
+2、	字符流:只能处理纯文本
+1)、输入流:Reader FileReader
+操作:read(字符数组)
+a)、中间容器  char[] flush=new char[长度]
+b)、接收长度  int len =0;
+c)、循环读取 while(-1!=(len=流.read(flush))){}
+d)、操作:输出、拷贝
+2）、输出流:Writer FileWriter
+操作:write(字符数组,0,长度)  输出	
+
+
+1、	转换流:解码与编码字符集问题：处理流:装饰模式 提高性能增强功能
+1)、输入流:InputStreamReader ->解码
+2)、输出流:OutputStreamWriter—>编码
+2、缓冲流:提高性能
+   1)、输入流:BufferedInputStream BufferedReader
+   2)、输出流:BufferedOutputStream BufferedWriter
+3、处理数据+类型
+1)、基本+字符串：必须存在才能读取 读取与写出顺序一致
+   a)、输入流:DataInputStream readXxx
+   b)、输出流:DataOutputStream writeXxx
+2）、引用类型:Serializable transient
+   a)、反序列化:ObjectInputStream readObject
+   b)、序列化:ObjectOutputStream writeObject
+4、打印流: PrintStream 
+5、System.in out err  setIn setOut
+以下流使用新增方法不能发生多态
+1、	ByteArrayOutputStream:  toByteArray()
+2、	BufferedReader: readLine()
+3、	BufferedWriter:newLine()
+4、	DataInputStream DataOutputStream
+5、	ObjectInputStream ObjectOutputStream
+6、	PrintStream
+	 
+
+三、重点
+
+
+
+四、操作
+0、打印文件|目录
+1、文件拷贝
+2、关闭流方法
+3、文件分割与合并(自学)
