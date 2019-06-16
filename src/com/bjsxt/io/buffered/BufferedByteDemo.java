@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 /**
- * ×Ö½ÚÁ÷ÎÄ¼ş¿½±´+»º³åÁ÷ £¬Ìá¸ßĞÔÄÜ
- * »º³åÁ÷(½ÚµãÁ÷)
+ * å­—èŠ‚æµæ–‡ä»¶æ‹·è´+ç¼“å†²æµ ï¼Œæé«˜æ€§èƒ½
+ * ç¼“å†²æµ(èŠ‚ç‚¹æµ)
  * @author Administrator
  *
  */
@@ -24,34 +24,34 @@ public class BufferedByteDemo {
 		
 	}
 	/**
-	 * ÎÄ¼şµÄ¿½±´
-	 * @param  Ô´ÎÄ¼şÂ·¾¶
-	 * @param  Ä¿Â¼ÎÄ¼şÂ·¾¶
+	 * æ–‡ä»¶çš„æ‹·è´
+	 * @param  æºæ–‡ä»¶è·¯å¾„
+	 * @param  ç›®å½•æ–‡ä»¶è·¯å¾„
 	 * @throws FileNotFoundException,IOException
 	 * @return 
 	 */
 		public static void copyFile(String srcPath,String destPath) throws FileNotFoundException,IOException {
-			//1¡¢½¨Á¢ÁªÏµ Ô´(´æÔÚÇÒÎªÎÄ¼ş) +Ä¿µÄµØ(ÎÄ¼ş¿ÉÒÔ²»´æÔÚ)  
+			//1ã€å»ºç«‹è”ç³» æº(å­˜åœ¨ä¸”ä¸ºæ–‡ä»¶) +ç›®çš„åœ°(æ–‡ä»¶å¯ä»¥ä¸å­˜åœ¨)  
 			File src =new File(srcPath);
 			File dest =new File(destPath);
-			if(! src.isFile()){ //²»ÊÇÎÄ¼ş»òÕßÎªnull
-				System.out.println("Ö»ÄÜ¿½±´ÎÄ¼ş");
-				throw new IOException("Ö»ÄÜ¿½±´ÎÄ¼ş");
+			if(! src.isFile()){ //ä¸æ˜¯æ–‡ä»¶æˆ–è€…ä¸ºnull
+				System.out.println("åªèƒ½æ‹·è´æ–‡ä»¶");
+				throw new IOException("åªèƒ½æ‹·è´æ–‡ä»¶");
 			}
-			//2¡¢Ñ¡ÔñÁ÷
+			//2ã€é€‰æ‹©æµ
 			InputStream is =new BufferedInputStream(new FileInputStream(src));
 			OutputStream os =new BufferedOutputStream( new FileOutputStream(dest));
-			//3¡¢ÎÄ¼ş¿½±´   Ñ­»·+¶ÁÈ¡+Ğ´³ö
+			//3ã€æ–‡ä»¶æ‹·è´   å¾ªç¯+è¯»å–+å†™å‡º
 			byte[] flush =new byte[1024];
 			int len =0;
-			//¶ÁÈ¡
+			//è¯»å–
 			while(-1!=(len=is.read(flush))){
-				//Ğ´³ö
+				//å†™å‡º
 				os.write(flush, 0, len);
 			}
-			os.flush(); //Ç¿ÖÆË¢³ö
+			os.flush(); //å¼ºåˆ¶åˆ·å‡º
 			
-			//¹Ø±ÕÁ÷
+			//å…³é—­æµ
 			os.close();
 			is.close();
 		}
