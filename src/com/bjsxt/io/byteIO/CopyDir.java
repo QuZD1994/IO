@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * ÎÄ¼ş¼ĞµÄ¿½±´
- * 1¡¢ÎÄ¼ş ¸³Öµ  copyFile
- * 2¡¢ÎÄ¼ş ´´½¨ mkdirs()
- * 3¡¢µİ¹é²éÕÒ×ÓËï¼¶
+ * æ–‡ä»¶å¤¹çš„æ‹·è´
+ * 1ã€æ–‡ä»¶ èµ‹å€¼  copyFile
+ * 2ã€æ–‡ä»¶ åˆ›å»º mkdirs()
+ * 3ã€é€’å½’æŸ¥æ‰¾å­å­™çº§
  * 
  * @author Administrator
  *
@@ -19,9 +19,9 @@ public class CopyDir {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		//Ô´Ä¿Â¼
+		//æºç›®å½•
 		String srcPath="E:/xp/test/a"; 	
-		//Ä¿±êÄ¿Â¼
+		//ç›®æ ‡ç›®å½•
 		String destPath="E:/xp/test/a/b";
 		try {
 			FileUtil.copyDir(srcPath,destPath);
@@ -33,9 +33,9 @@ public class CopyDir {
 		
 	}
 	/**
-	 * ¿½±´ÎÄ¼ş¼Ğ
-	 * @param src Ô´Â·¾¶
-	 * @param dest Ä¿±êÂ·¾¶
+	 * æ‹·è´æ–‡ä»¶å¤¹
+	 * @param src æºè·¯å¾„
+	 * @param dest ç›®æ ‡è·¯å¾„
 	 */
 	public static void copyDir(String  srcPath,String destPath){
 		File src=new File(srcPath);
@@ -46,24 +46,24 @@ public class CopyDir {
 	
 	
 	/**
-	 * ¿½±´ÎÄ¼ş¼Ğ
-	 * @param src Ô´File¶ÔÏó
-	 * @param dest Ä¿±êFile¶ÔÏó
+	 * æ‹·è´æ–‡ä»¶å¤¹
+	 * @param src æºFileå¯¹è±¡
+	 * @param dest ç›®æ ‡Fileå¯¹è±¡
 	 */
 	public static void copyDir(File src,File dest){
-		if(src.isDirectory()){ //ÎÄ¼ş¼Ğ
+		if(src.isDirectory()){ //æ–‡ä»¶å¤¹ å¦‚æœæ˜¯æ–‡ä»¶å¤¹ åœ¨ç›®æ ‡Fileï¼ˆçˆ¶è·¯å¾„ï¼‰ä¸‹åˆ›å»ºä¸€ä¸ªæºFileçš„æ–‡ä»¶
 			dest =new File(dest,src.getName());			
 		}		
 		copyDirDetail(src,dest);
 	}
 	
 	/**
-	 * ¿½±´ÎÄ¼ş¼ĞÏ¸½Ú
+	 * æ‹·è´æ–‡ä»¶å¤¹ç»†èŠ‚
 	 * @param src
 	 * @param dest
 	 */
 	public static void copyDirDetail(File src,File dest){
-		if(src.isFile()){ //ÎÄ¼ş
+		if(src.isFile()){ //æ–‡ä»¶
 			try {
 				FileUtil.copyFile(src, dest);
 			} catch (FileNotFoundException e) {
@@ -71,10 +71,10 @@ public class CopyDir {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}else if(src.isDirectory()){ //ÎÄ¼ş¼Ğ
-			//È·±£Ä¿±êÎÄ¼ş¼Ğ´æÔÚ
+		}else if(src.isDirectory()){ //æ–‡ä»¶å¤¹
+			//ç¡®ä¿ç›®æ ‡æ–‡ä»¶å¤¹å­˜åœ¨
 			dest.mkdirs();
-			//»ñÈ¡ÏÂÒ»¼¶Ä¿Â¼|ÎÄ¼ş
+			//è·å–ä¸‹ä¸€çº§ç›®å½•|æ–‡ä»¶
 			for(File sub:src.listFiles()){
 				copyDirDetail(sub,new File(dest,sub.getName()));
 			}
